@@ -20,7 +20,7 @@ public:
             }
             
             arr.push_back(t1);
-            t1.clear();
+            // t1.clear();
         }
         
         return arr;

@@ -5,14 +5,12 @@ public:
         // bool t3 = false;
         
         while(i<t.size() && j<s.size()){
-            if(t[i] == s[j]){
-                j++;
-            }
-                i++;
+            if(t[i] == s[j]) j++;
+
+            i++;
         }
-        if(j==s.size()){
-            return true;
-        }
+        if(j==s.size()) return true;
+        
         return false;
     }
 };

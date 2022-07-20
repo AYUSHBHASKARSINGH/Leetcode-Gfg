@@ -2,7 +2,7 @@ class Solution {
 public:
     bool isSubsequence(string s, string t) {
         int i=0,j=0;
-        bool t3 = false;
+        // bool t3 = false;
         
         while(i<t.size() && j<s.size()){
             if(t[i] == s[j]){
@@ -14,8 +14,8 @@ public:
             }
         }
         if(j==s.size()){
-            t3= true;
+            return true;
         }
-        return t3;
+        return false;
     }
 };

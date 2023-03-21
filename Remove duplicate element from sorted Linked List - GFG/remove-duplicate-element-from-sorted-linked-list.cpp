@@ -74,17 +74,32 @@ Node *removeDuplicates(Node *head)
     // }
     
     Node*curr = head;
-    // Node*temp = head->next;
+    Node*temp = head;
+    
+    // while(curr!=NULL){
+    //     if((curr->next!=NULL) && (curr->data==curr->next->data) ){
+    //         Node* t1 = curr->next->next;
+    //         Node* del = curr->next;
+    //         delete(del);
+    //         curr->next = t1;
+    //         // curr = curr->next;
+    //     }
+    //     else{
+    //         curr = curr->next;
+    //     }
+    // }
     
     while(curr!=NULL){
-        if((curr->next!=NULL) && (curr->data==curr->next->data) ){
-            Node* t1 = curr->next->next;
-            Node* del = curr->next;
-            // delete(del);
-            curr->next = t1;
-            // curr = curr->next;
+        if((curr->next!=NULL) && (curr->data==curr->next->data)){
+            while((curr->next!=NULL) && (curr->next->data==temp->data) ){
+                curr = curr->next;       
+            }
+            temp->next = curr->next;
+            curr = curr->next;
+            temp = curr;
         }
         else{
+            temp = temp->next;
             curr = curr->next;
         }
     }

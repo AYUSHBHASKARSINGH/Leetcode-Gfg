@@ -11,26 +11,60 @@ class Solution
     int maxMeetings(int start[], int end[], int n)
     {
         // Your code here
-        pair<int,int> a[n];
-        for(int i=0;i<n;i++){
-            a[i].first = end[i];
-            a[i].second = start[i];
-        }
-        
-        sort(a,a+n);
-        
-        int count = 1;
-        int temp = a[0].first;
-        for(int i=0;i<n-1;i++){
-            if(temp<a[i+1].second){
-                count++;
-                temp = a[i+1].first;
-            }
-        }
-        
-        return count;
+       vector<pair<int,int>> vec;
+       for(int i=0;i<n;i++){
+           vec.push_back(make_pair(end[i],start[i]));
+       }
+       
+       sort(vec.begin(),vec.end());
+
+
+       int count = 1;
+       int temp = vec[0].first;
+       for(int i=0;i<n-1;i++){
+           if(temp < vec[i+1].second){
+               count++;
+               temp = vec[i+1].first;
+           }
+           
+       }
+       
+       return count;
     }
 };
+
+
+
+
+
+
+
+
+
+// int maxMeetings(int start[], int end[], int n)
+//     {
+//         // Your code here
+//         pair<int,int> a[n];
+//         for(int i=0;i<n;i++){
+//             a[i].first = end[i];
+//             a[i].second = start[i];
+//         }
+        
+//         sort(a,a+n);
+        
+//         int count = 1;
+//         int temp = a[0].first;
+//         for(int i=0;i<n-1;i++){
+//             if(temp<a[i+1].second){
+//                 count++;
+//                 temp = a[i+1].first;
+//             }
+//         }
+        
+//         return count;
+//     }
+
+
 
 //{ Driver Code Starts.
 int main() {
